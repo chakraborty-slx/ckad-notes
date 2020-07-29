@@ -18,3 +18,4 @@ kubectl scale deployment webapp --replicas=3
 
 kubectl run custom-nginx --image=nginx --port=8080
 
+kubectl expose pod httpd --port=80 --name=httpd
