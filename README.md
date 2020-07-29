@@ -10,6 +10,8 @@ The imperative approach involves using any of the verb based commands, here are 
 - kubectl delete
 - kubectl edit
 
+Run commands 
+
 - kubectl run pod-httpd --image=httpd --labels="app=apache_webserver" --restart=Never
 - kubectl run nginx-pod --image nginx:alpine
 - kubectl run redis --image redis:alpine --labels tier=db
@@ -26,3 +28,9 @@ kubectl scale deployment webapp --replicas=3
 
 
 kubectl expose pod httpd --port=80 --name=httpd
+
+### Quick tips to generate YAML
+
+kubectl run pod-httpd --image=httpd --restart=Never --dry-run -o yaml > pod.yaml
+
+kubectl create service nodeport svc-nodeport-httpd --node-port=31000 --tcp=3050:80 > service.yaml
